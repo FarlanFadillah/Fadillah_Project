@@ -45,8 +45,8 @@ def home(request):
         print(data[3])
     
     #untuk foto profile
-    img_path = Image.objects.get(id=16).image
-    return render(request, 'facebook.html',{'contents': user_content, 'username':username, 'img_path':img_path})
+    # img_path = User.objects.get(id=16).image
+    return render(request, 'facebook.html',{'contents': user_content, 'username':username})
 
 
 def register(request):
