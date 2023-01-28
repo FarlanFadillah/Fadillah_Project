@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'gaya.css' %}">
+    <title>Register Akun</title>
+</head>
+<body class="body">
+    
+    <div class="navigation">
+        <form method="POST" action="register" class="form-nav">
+            {% csrf_token %}
+            <h1 class="register">REGISTER AKUN</h1>
+            {% for i in messages %}
+            <p class="warning" >{{i}}</p>
+            {% endfor %}
+            <input type="text" class="sign"  class="form" placeholder="Username" name="username">
+
+            <input type="email" class="sign" placeholder="Email" id="password" name="email">
+
+            <input type="password" class="sign" placeholder="Password" id="password" name="password">
+
+            <input type="password" class="sign" placeholder="Password" id="password" name="password2">
+
+            <h3 class="h3-nav">Orang yang menggunakan layanan kami mungkin telah mengunggah informasi kontak Anda.
+            <br>
+            <br>
+            Dengan mendaftar, berarti Anda menyetujui Ketentuan, Kebijakan Privasi, dan Kebijakan Cookie kami.
+            </h3>
+
+            <img src="" alt="" srcset="">
+
+            <input type="submit" class="button" value="Daftar">
+
+            {% if user.is_authenticated %}
+            <a class="button" href="/">Login</a>
+            {% else %}
+            <a class="button" href="login">Login</a>
+            {% endif %}
+          
+
+            <!-- <div class="button">
+                <input type="submit" class="button-1" value="Daftar" >
+            </div> -->
+
+        </form>
+
+    </div>
+
+</body>
+</html>

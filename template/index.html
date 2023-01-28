@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+    <h2>Welcome Admin</h2>
+    {% else %}
+    <h2>Welcome {{user.username}}</h2>
+    {% endif %}
+    {% else %}
+    <h2>Welcome to <span>Impact</span></h2>
+    {% endif %}
+
+    <h2>{{user.is_authenticated}}</h2>
+    <h2>{{request.user.id}}</h2>
+    <!-- <form method="post" action="post">
+        {% csrf_token %}
+        <input name="content" type="text" width="25" height="75">
+        <input type="submit">
+    </form> -->
+    {% if user.is_authenticated %}
+    <h3><a class="daftar" href="logout">Logout</a>
+        {% else %}
+    </h3>
+    <h3><a class="daftar" href="login">Login</a> </h3>
+    {% endif %}
+
+
+    <form method="POST" action="search">
+        {% csrf_token %}
+        <input type="text" name="search_key">
+    </form>
+</body>
+
+</html>

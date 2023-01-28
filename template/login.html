@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Fadillah Website</title>
+</head>
+<body class="body">
+    
+    <div class="navigation">
+        
+        <form method="POST" action="login" class="form-nav">
+           
+
+            {% csrf_token %}
+            <h1 class="register">LOGIN ACCOUNT</h1>
+            {% for i in messages %}
+            <p class="warning">{{i}}</p>
+            {% endfor %}
+            <input name="username" type="text" class="sign"  class="form" placeholder="Email">
+            <input name="password" type="password" class="sign" placeholder="Password" id="password">
+
+            <!-- <h3 class="h3-nav">Orang yang menggunakan layanan kami mungkin telah mengunggah informasi kontak Anda.
+            <br>
+            <br>
+            Dengan mendaftar, berarti Anda menyetujui Ketentuan, Kebijakan Privasi, dan Kebijakan Cookie kami.
+            </h3> -->
+
+            <input type="submit" class="button" value="Login">
+
+            <h3>Tidak Punya Akun? <a class="daftar" href="register">Daftar</a> </h3>
+
+            <!-- <div class="button">
+                <input type="submit" class="button-1" value="Daftar" >
+            </div> -->
+
+        </form>
+
+    </div>
+</html>

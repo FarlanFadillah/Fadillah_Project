@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <h1 class="logo">F</h1>
+
+        <form class="form" action="">
+
+            <input class="search" type="text" placeholder="Search...">
+
+            <a class="icon fa-solid fa-magnifying-glass"></a>
+
+        </form>
+
+        <a class="search-btn-1" href="" target="_blank">Sign In</a>
+
+        <a class="search-btn-2" href="logout">Logout</a>
+
+        <a class="icon-user fa-solid fa-user"></a>
+
+    </div>
+
+    <div class="content">
+        <div class="content-left"></div>
+        <div class="content-center">
+            <div class="main-content">
+
+                <!-- Posting Block -->
+                <div class="content-1">
+                    <a href="">
+                    </a>
+                    <div class="content-img">
+                        <form method="POST" action="post">
+                            {% csrf_token %} <!--Upload Content-->
+                            <textarea name="content" rows="19" cols="59"></textarea>
+                            <input type="submit" value="Post">
+                        </form>
+                        <!-- <video width="450" height="290" poster="heh.jpg" controls>
+                            <source src="vieo.mp4" type="video/mp4">
+                          </video> -->
+                    </div>
+                </div>
+                <!-- End Posting Block -->
+
+
+                <!-- Menampilkan content -->
+                {% for content in contents %}
+                <div class="content-1">
+
+                    <a href="">
+                        <img class="profile" src="{% static 'hehe.jpg' %}"></img>
+                        <a class="name-profile" href="">{{request.user}}</a>
+                        <span class="tgl">{{content.post_date}}</span>
+                    </a>
+
+                    <a class="icon-like fa-solid fa-heart" href=""></a>
+                    <a class="icon-comment fa-solid fa-comment"></a>
+                    <div class="content-img">
+                        <p>{{ content.text_content }}</p>
+                        <p class="p-content">{{users}}</p>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Menampilkan content -->
+            </div>
+
+
+        </div>
+        <div class="content-right">
+
+            <div class="trends-box">
+
+                <span class="trends">Trends</span>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+                <a class="input-trends" href="">Trending in Indonesia <br>
+                    Malam Minggu <br>
+                    15.3K Tweets</a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
